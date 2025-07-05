@@ -1,4 +1,4 @@
-import Button from "@/componentes/button"
+import Button from "@/componentes/Button"
 import MeuComponente from "@/componentes/MeuComponente"
 
 export default function Main(){
