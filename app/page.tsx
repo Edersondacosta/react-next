@@ -2,12 +2,12 @@ export default function Main(){
   return(
     <div className="flex h-screen bg-gray-300"> {/* h-screen 100% tela*/}
 
-      <nav className="bg-blue-700 text-amber-50 w-80 space-y-10"> {/* w-80 largura da div space-y espaçamento entre linhas ou w */}
+      <nav className="bg-blue-700 text-amber-50 w-80 space-y-8"> {/* w-80 largura da div space-y espaçamento entre linhas ou w */}
         <h1 className="text-4xl ml-5 mt-10">Menu</h1>
-        <h2 className="text-4sm ml-10">Início</h2> {/* ml - margin left, top, button, right */}
-        <h2 className="text-4sm ml-10">Perfil</h2>
-        <h2 className="text-4sm ml-10">Configurações</h2>
-        <h2 className="text-4sm ml-10">Sair</h2>
+        <h2 className="text-5sm ml-10">Início</h2> {/* ml - margin left, top, button, right */}
+        <h2 className="text-5sm ml-10">Perfil</h2>
+        <h2 className="text-5sm ml-10">Configurações</h2>
+        <h2 className="text-5sm ml-10">Sair</h2>
       </nav>
 
       <div className="flex-1">
