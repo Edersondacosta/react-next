@@ -1,51 +1,54 @@
-// 📌 Exercício 6 – Simulador de likes
-// Descrição: Crie um botão de "Curtir" que alterna entre "Curtir" e "Descurtir", e mostra o total de curtidas.
-// Dica: Use um booleano para o estado do botão e um número para o total de curtidas.
+// "use client"
+import { useState } from "react"
 
-"use client"
-import {useState} from "react"
-
-import {AiFillDislike, AiFillLike} from "react-icons/ai";
-
-
-
-
-export default function Man(){
-    
-    const [liked, setliked] = useState(false)
-    const [likes, setlikes] = useState(0)
-    function ok(){
-        if (liked){
-            setliked(false)
-            setlikes(likes-1)
+type userProps = {
+        id:number
+        title:string
+        price:number
+        description:string
+        category:string
+        image:string
+        rating:{
+            rate:number
+            count:number
         }
-        else{
-            setliked(true)
-            setlikes(likes+1)
-        }
-            
-            
-        }
-     
-        
     
-    
+}
+
+export default async function Main(){
+    const resposta = await fetch("https://fakestoreapi.com/products")
+    const data:userProps[] = await resposta.json()
     return(
+    // ---------------------------------------------------
+   
+    //Os dados vem em json, estamos descompactando os dados json lista de objeto no exemplo [ {
+    //usei cons
+        <div className="flex bg-gray-100">
+            <div className="flex w-100 bg-gray-800 text-amber-50 h-screen">
+                <nav>
+                    <p>Manu</p>
+                    <p className="ml-5 text-sm pt-5">Início</p>
+                    <p className="ml-5 text-sm pt-5">Produtos</p>
+                    <p className="ml-5 text-sm pt-5">Categorias</p>
+                    <p className="ml-5 text-sm pt-5 ">Contato</p>
+                </nav>
+            </div>
+            <div className="flex flex-wrap m-15 shadow-2xs ">
+                {data.map((item,i)=>(
+                <div className="flex flex-col m-2 w-50 h-70 bg-white rounded-2xl" key={(i)}>{/*É preciso definir uma key, para a div ser única*/}
+                        <p className="flex justify-center"><img className="w-15 h-20 mt-2" src={item.image} alt="Imagem"/> </p>
+                        <p className="m-2 text-sm font-bold h-10">{item.title.slice(0,30)} </p>
+                        <p className="text-green-600 ">U$ {item.price} </p>
+                        <p className="text-sm flex-wrap h-10">{item.description.slice(0,25)} </p>
+                        {/* .slice(0,25) limita o texto de uma variável*/}
+                        <p className="flex justify-center mt-10"><button className="bg-blue-700 rounded w-40 text-amber-50 center ">Ver Mais</button></p>
 
-        <div>
-            {/* <button>AAA <AiFillDislike /></button>
-            <button>AAA <AiFillLike /></button> */}
-            <button onClick={(ok)}  className="flex justify-left text-blue-900 bg-red-600 w-20 rounded ">
-                {liked?<AiFillLike />:<AiFillDislike />}
-                </button>
-                <p>{likes}</p>
-                <p>Curtir</p>
-            
-
-
+                </div>
+                ))} 
+            </div>
+        </div>
  
 
-        </div>
-        
+        // -------------------------------------------------------
     )
 }
