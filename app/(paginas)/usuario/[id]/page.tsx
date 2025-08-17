@@ -19,8 +19,8 @@ export default async function User ({params}:{params: Promise<{id:string}>}){
             {dados.map((item) => (
                 <div key={item.id}>
                     <h1>id: {item.id}</h1>
-                    <h1>id: {item.title}</h1>
-                    <h1>id: {item.body}</h1>
+                    <h1>Título: {item.title}</h1>
+                    <h1>Corpo: {item.body}</h1>
                 </div>
                 ))}
 
